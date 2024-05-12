@@ -1,7 +1,6 @@
+
+import 'package:custom_widget_test/screens/HomeScreen/homeScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_tech_assignment/screens/home_screen/home_screen.dart';
-import 'package:flutter_tech_assignment/screens/login_screen/login_screen.dart';
-import 'consts/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,16 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
-          useMaterial3: true,
-        ),
-        routes: {
-          "loginScreen": (context) => LoginScreen(),
-          "homeScreen": (context) => HomeScreen(),
-        },
-        home: LoginScreen());
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const HomeScreen(),
+    );
   }
 }
+

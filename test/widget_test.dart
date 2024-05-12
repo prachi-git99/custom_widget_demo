@@ -1,30 +1,30 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:custom_widget_test/screens/HomeScreen/widgets/customWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_tech_assignment/main.dart';
-
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('CustomPieChart renders correctly', (WidgetTester tester) async {
+    final Map<String, double> counts = {'A': 10.0, 'B': 20.0, 'C': 30.0};
+    final Widget widget = CustomPieChart(
+      title: 'Test Chart',
+      innerTitle: 'Total Items',
+      legends: {'A': Colors.red, 'B': Colors.blue, 'C': Colors.green},
+      counts: counts,
+    );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    await tester.pumpWidget(MaterialApp(home: Scaffold(body: widget)));
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Verify if the title is displayed correctly
+    expect(find.text('Test Chart'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify if the inner title is displayed correctly
+    expect(find.text('Total Items'), findsOneWidget);
+
+    // Verify if the legends are displayed correctly
+    expect(find.text('A'), findsOneWidget);
+    expect(find.text('B'), findsOneWidget);
+    expect(find.text('C'), findsOneWidget);
+
+    // You can add more verification checks as needed
   });
 }

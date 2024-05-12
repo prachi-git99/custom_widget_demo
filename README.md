@@ -1,4 +1,4 @@
-# flutter_tech_assignment
+# custom_widget_test
 
 A new Flutter project.
 

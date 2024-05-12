@@ -1,4 +1,4 @@
-package com.example.flutter_tech_assignment
+package com.example.custom_widget_test
 
 import io.flutter.embedding.android.FlutterActivity
 
